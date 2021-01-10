@@ -342,8 +342,8 @@
         "z": "",
         "botname": "SHC",
         "usernames": "",
-        "chatids": "",
-        "baseapiurl": "",
+        "chatids": "336759477",
+        "baseapiurl": "https://t.me/proxy?server=35.196.138.141&port=443&secret=9f2cdda5a812be1888a800e5c14add63",
         "pollinterval": "300"
     },
     {
@@ -404,6 +404,65 @@
         "id": "e8546bbd.94ed58",
         "type": "telegram bot",
         "z": "d9d14e3.37f63b",
+        "botname": "HeinzBot"
+    },
+    {
+        "id": "19aaaccd.0b47b3",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Коридор",
+        "icon": "dashboard",
+        "order": 4
+    },
+    {
+        "id": "d300faa0.cd9738",
+        "type": "ui_group",
+        "z": "",
+        "name": "Світло",
+        "tab": "19aaaccd.0b47b3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "88aaadc3.b546e",
+        "type": "ngrokauth",
+        "z": "",
+        "authtoken": "4AFzfHhb7GhR4FxQqWVFG_4m435FU4GbnwZGshD37nL"
+    },
+    {
+        "id": "e2a11350.38798",
+        "type": "ui_tab",
+        "name": "Tab 5",
+        "icon": "dashboard",
+        "order": 5
+    },
+    {
+        "id": "37a73a09.b05ac6",
+        "type": "ui_group",
+        "z": "",
+        "name": "Jira",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ad915993.412978",
+        "type": "ui_group",
+        "z": "",
+        "name": "Auth",
+        "tab": "e2a11350.38798",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c54481d0.19723",
+        "type": "telegram bot",
+        "z": "c6ee9baa.efc48",
         "botname": "HeinzBot"
     },
     {
@@ -513,7 +572,7 @@
         "qos": "",
         "retain": "",
         "broker": "1ee251b4.d53dae",
-        "x": 630,
+        "x": 790,
         "y": 940,
         "wires": []
     },
@@ -601,7 +660,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -613,7 +672,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 150,
+        "x": 310,
         "y": 980,
         "wires": [
             [
@@ -652,7 +711,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
+        "x": 580,
         "y": 980,
         "wires": [
             [
@@ -671,7 +730,7 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 610,
+        "x": 770,
         "y": 1020,
         "wires": []
     },
@@ -684,7 +743,7 @@
         "qos": "",
         "retain": "",
         "broker": "1ee251b4.d53dae",
-        "x": 540,
+        "x": 700,
         "y": 1060,
         "wires": []
     },
@@ -710,7 +769,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 110,
+        "x": 270,
         "y": 1060,
         "wires": [
             [
@@ -749,7 +808,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
+        "x": 480,
         "y": 1060,
         "wires": [
             [
@@ -1116,7 +1175,7 @@
         "name": "send response",
         "bot": "befea48e.4167e8",
         "x": 1100,
-        "y": 200,
+        "y": 180,
         "wires": [
             []
         ]
@@ -1143,7 +1202,7 @@
         "type": "function",
         "z": "64399be2.de2ccc",
         "name": "create help text",
-        "func": "var kitchen_temp = global.get(\"Kitchen_temp\");\nvar badroom_temp = global.get(\"Badroom_temp\");\nvar badroom_light = global.get(\"Badroom_light\");\nvar kitchen_floor = global.get(\"Kitchen_floor\");\nvar kitchen_light = global.get(\"Kitchen_light\");\nvar kitchen_light_main = global.get(\"Kitchen_light_main\");\nvar kitchen_light_table = global.get(\"Kitchen_light_table\");\nvar shower_temp = global.get(\"Shower_temp\");\nvar bathroom_temp = global.get(\"Bathroom_temp\");\nvar korudor_temp = global.get(\"Korudor_temp\");\nvar hall_floor = global.get(\"Hall_floor\");\nvar shower_floor = global.get(\"Shower_floor\");\nvar bathroom_floor = global.get(\"Bathroom_floor\");\n\n\nvar helpMessage = \"Температура в кухні - \" + kitchen_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в спальні - \" + badroom_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в душовій - \" + shower_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в ванній - \" + bathroom_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в коридорі - \" + korudor_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога в кухні - \" + kitchen_floor;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Люстра в кухні - \" + kitchen_light_main;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Світло в кухні над стільницею - \" + kitchen_light_table;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Світло в кухні - \" + kitchen_light;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Світло в спальні - \" + badroom_light;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога у ванній - \" + bathroom_floor;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога в душовій - \" + shower_floor;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога в  коридорі- \" + hall_floor;\nhelpMessage += \"\\r\\n\";\n\nhelpMessage += \"/kitchen_floor - підлога в кухні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/badroom_light - світло в спальні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/kitchen_light - світло в кухні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/kitchen_light_main - Люстра в кухні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/kitchen_light_table - Світло над стільницею\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/screenShoot - Останній скрін\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/screenVideo - Останній відос\";\n\n\n\nmsg.payload.content = helpMessage;\nreturn msg;",
+        "func": "var kitchen_temp = global.get(\"Kitchen_temp\");\nvar badroom_temp = global.get(\"Badroom_temp\");\nvar badroom_light = global.get(\"Badroom_light\");\nvar kitchen_floor = global.get(\"Kitchen_floor\");\nvar kitchen_light = global.get(\"Kitchen_light\");\nvar kitchen_light_main = global.get(\"Kitchen_light_main\");\nvar kitchen_light_table = global.get(\"Kitchen_light_table\");\nvar shower_temp = global.get(\"Shower_temp\");\nvar bathroom_temp = global.get(\"Bathroom_temp\");\nvar korudor_temp = global.get(\"Korudor_temp\");\nvar hall_floor = global.get(\"Hall_floor\");\nvar shower_floor = global.get(\"Shower_floor\");\nvar bathroom_floor = global.get(\"Bathroom_floor\");\nvar ngrok = global.get(\"ngrok\");\nvar ngrok_ssh = global.get(\"ngrok_ssh\");\n\n\nvar helpMessage = \"Температура в кухні - \" + kitchen_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в спальні - \" + badroom_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в душовій - \" + shower_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в ванній - \" + bathroom_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Температура в коридорі - \" + korudor_temp;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога в кухні - \" + kitchen_floor;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Люстра в кухні - \" + kitchen_light_main;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Світло в кухні над стільницею - \" + kitchen_light_table;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Світло в кухні - \" + kitchen_light;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Світло в спальні - \" + badroom_light;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога у ванній - \" + bathroom_floor;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога в душовій - \" + shower_floor;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Підлога в  коридорі- \" + hall_floor;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Ngrok- \" + ngrok;\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"Ngrok_ssh- \" + ngrok_ssh;\nhelpMessage += \"\\r\\n\";\n\nhelpMessage += \"/kitchen_floor - підлога в кухні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/badroom_light - світло в спальні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/kitchen_light - світло в кухні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/kitchen_light_main - Люстра в кухні\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/kitchen_light_table - Світло над стільницею\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/screenShoot - Останній скрін\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/screenVideo - Останній відос\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/ngrok - перезапустити Ngrok\";\nhelpMessage += \"\\r\\n\";\nhelpMessage += \"/ngrok_ssh - перезапустити Ngrok\";\n\n\nmsg.payload.content = helpMessage;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 820,
@@ -1163,8 +1222,8 @@
         "func": "\nglobal.set(\"Badroom_light\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 740,
-        "y": 1720,
+        "x": 780,
+        "y": 1980,
         "wires": [
             []
         ]
@@ -1179,8 +1238,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1090,
-        "y": 1500,
+        "x": 1130,
+        "y": 1760,
         "wires": []
     },
     {
@@ -1191,11 +1250,12 @@
         "func": "\nglobal.set(\"Kitchen_floor\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 870,
-        "y": 1500,
+        "x": 910,
+        "y": 1760,
         "wires": [
             [
-                "b72ac6fd.360018"
+                "b72ac6fd.360018",
+                "a3922a28.2ff388"
             ]
         ]
     },
@@ -1209,8 +1269,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1150,
-        "y": 1720,
+        "x": 1190,
+        "y": 1980,
         "wires": []
     },
     {
@@ -1261,8 +1321,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
-        "y": 1500,
+        "x": 640,
+        "y": 1760,
         "wires": [
             [
                 "ef40f715.d1eb18",
@@ -1318,8 +1378,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 1720,
+        "x": 360,
+        "y": 1980,
         "wires": [
             [
                 "5c97a13e.4e7bb"
@@ -1334,11 +1394,15 @@
         "topic": "Кухня",
         "qos": "2",
         "broker": "1ee251b4.d53dae",
-        "x": 100,
-        "y": 1540,
+        "x": 140,
+        "y": 1800,
         "wires": [
             [
-                "e4a59aca.07532"
+                "e4a59aca.07532",
+                "b3a12f0c.d8bba",
+                "9fda0bb9.b4c0a8",
+                "295ba4a4.3280dc",
+                "23dede6f.452532"
             ]
         ]
     },
@@ -1350,8 +1414,8 @@
         "topic": "Спальня",
         "qos": "2",
         "broker": "1ee251b4.d53dae",
-        "x": 120,
-        "y": 1720,
+        "x": 160,
+        "y": 1980,
         "wires": [
             [
                 "e3844ae3.4f879",
@@ -1421,12 +1485,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 860,
-        "y": 480,
+        "x": 940,
+        "y": 540,
         "wires": [
             [
                 "d654fbe5.d7bad",
-                "8315988d.28b388"
+                "8315a8e6.492e28"
             ]
         ]
     },
@@ -1435,7 +1499,7 @@
         "type": "function",
         "z": "64399be2.de2ccc",
         "name": "confirmation message",
-        "func": "context.global.keyboard = { pending : true };\ncontext.global.keyboard = { room : 1 };\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Вкл'],\n      ['Викл']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\nmsg.payload.content = \"Змінити статус\";\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
+        "func": "context.global.keyboard = { pending : true };\n\ncontext.global.keyboard = { device : '1/1' };\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Вкл'],\n      ['Викл']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\nmsg.payload.content = \"Змінити статус\";\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
         "outputs": "1",
         "noerr": 0,
         "x": 580,
@@ -1452,7 +1516,7 @@
         "type": "function",
         "z": "64399be2.de2ccc",
         "name": "create response",
-        "func": "if (typeof context.global.keyboard.room !== 'undefined')\n{\n\nif (context.global.keyboard.room == 1)\n{\n    context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Вкл')\n    {\n        msg.payload = true;\n            return msg;  \n    }\n    if(msg.payload.content === 'Викл')\n    {\n        msg.payload = false;\n            return msg;  \n    }\n}\n}",
+        "func": "if(context.global.keyboard.device == '1/1')\n// {\n\n// if (context.global.keyboard.room == 1)\n{\n    context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Вкл')\n    {\n        msg.payload = true;\n            return msg;  \n    }\n    if(msg.payload.content === 'Викл')\n    {\n        msg.payload = false;\n            return msg;  \n    }\n// }\n}",
         "outputs": "2",
         "noerr": 0,
         "x": 560,
@@ -1460,7 +1524,7 @@
         "wires": [
             [
                 "b93ea734.46835",
-                "8315988d.28b388"
+                "c1f85a26.6806e8"
             ],
             []
         ]
@@ -1587,8 +1651,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 850,
-        "y": 1440,
+        "x": 890,
+        "y": 1700,
         "wires": [
             [
                 "93169a27.1417f8"
@@ -1623,8 +1687,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1010,
-        "y": 1440,
+        "x": 1050,
+        "y": 1700,
         "wires": []
     },
     {
@@ -1655,8 +1719,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 310,
-        "y": 1660,
+        "x": 350,
+        "y": 1920,
         "wires": []
     },
     {
@@ -1688,7 +1752,8 @@
         "y": 160,
         "wires": [
             [
-                "7576885e.8e3ec8"
+                "7576885e.8e3ec8",
+                "6e618eb8.337e3"
             ]
         ]
     },
@@ -1702,7 +1767,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -1714,7 +1779,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 180,
+        "x": 340,
         "y": 920,
         "wires": [
             [
@@ -1753,8 +1818,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 900,
+        "x": 560,
+        "y": 920,
         "wires": [
             [
                 "80da7b3a.9f99a8"
@@ -1785,7 +1850,7 @@
         "type": "function",
         "z": "64399be2.de2ccc",
         "name": "create response",
-        "func": "if(context.global.keyboard.room == 1)\n{\n    context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Вкл')\n    {\n        msg.payload = true;\n            return [msg, null];  \n    }\n    if(msg.payload.content === 'Викл')\n    {\n        msg.payload = false;\n            return [msg, null];  \n    }\n}\n",
+        "func": "if(context.global.keyboard.device == '2/1')\n\n\n{\n    context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Вкл')\n    {\n        msg.payload = true;\n            return [msg, null];  \n    }\n    if(msg.payload.content === 'Викл')\n    {\n        msg.payload = false;\n            return [msg, null];  \n    }\n}\n",
         "outputs": "2",
         "noerr": 0,
         "x": 540,
@@ -1802,7 +1867,7 @@
         "type": "function",
         "z": "64399be2.de2ccc",
         "name": "confirmation message",
-        "func": "context.global.keyboard = { pending : true };\ncontext.global.keyboard = { room : 1 };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Вкл'],\n      ['Викл']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\nmsg.payload.content = \"Змінити статус\";\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
+        "func": "context.global.keyboard = { pending : true };\n\ncontext.global.keyboard = { device : '2/1' };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Вкл'],\n      ['Викл']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\nmsg.payload.content = \"Змінити статус\";\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
         "outputs": "1",
         "noerr": 0,
         "x": 560,
@@ -1903,8 +1968,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 8,
-        "x": 300,
-        "y": 1540,
+        "x": 340,
+        "y": 1800,
         "wires": [
             [
                 "135d0b42.9f44f5"
@@ -1913,10 +1978,12 @@
                 "135d0b42.9f44f5"
             ],
             [
-                "c49c86c.29a45f8"
+                "c49c86c.29a45f8",
+                "b3a12f0c.d8bba"
             ],
             [
-                "c49c86c.29a45f8"
+                "c49c86c.29a45f8",
+                "b3a12f0c.d8bba"
             ],
             [
                 "e37ffa7c.1fb6b"
@@ -1942,8 +2009,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1090,
-        "y": 1540,
+        "x": 1130,
+        "y": 1800,
         "wires": []
     },
     {
@@ -1954,8 +2021,8 @@
         "func": "\nglobal.set(\"Kitchen_light_table\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 890,
-        "y": 1540,
+        "x": 930,
+        "y": 1800,
         "wires": [
             [
                 "7892ea5d.bc57e4"
@@ -2010,8 +2077,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
-        "y": 1540,
+        "x": 640,
+        "y": 1800,
         "wires": [
             [
                 "30794a19.dc4a46"
@@ -2028,7 +2095,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -2040,7 +2107,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 170,
+        "x": 330,
         "y": 860,
         "wires": [
             [
@@ -2079,7 +2146,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 570,
         "y": 860,
         "wires": [
             [
@@ -2109,7 +2176,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 160,
+        "x": 320,
         "y": 800,
         "wires": [
             [
@@ -2148,7 +2215,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 570,
         "y": 800,
         "wires": [
             [
@@ -2346,8 +2413,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1080,
-        "y": 1580,
+        "x": 1120,
+        "y": 1840,
         "wires": []
     },
     {
@@ -2358,8 +2425,8 @@
         "func": "\nglobal.set(\"Kitchen_light\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 860,
-        "y": 1580,
+        "x": 900,
+        "y": 1840,
         "wires": [
             [
                 "4d689009.f2b9a8"
@@ -2414,8 +2481,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 1580,
+        "x": 630,
+        "y": 1840,
         "wires": [
             [
                 "4ad499cf.d3149"
@@ -2432,8 +2499,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1080,
-        "y": 1620,
+        "x": 1120,
+        "y": 1880,
         "wires": []
     },
     {
@@ -2444,8 +2511,8 @@
         "func": "\nglobal.set(\"Kitchen_light_main\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 880,
-        "y": 1620,
+        "x": 920,
+        "y": 1880,
         "wires": [
             [
                 "6e573cee.6ba034"
@@ -2500,8 +2567,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 1620,
+        "x": 630,
+        "y": 1880,
         "wires": [
             [
                 "4eeab837.3ce14"
@@ -2613,7 +2680,7 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 760,
+        "x": 720,
         "y": 60,
         "wires": [
             [
@@ -2824,7 +2891,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -2836,8 +2903,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 110,
-        "y": 1160,
+        "x": 270,
+        "y": 1220,
         "wires": [
             [
                 "8a01e3b1.ac24d"
@@ -2874,8 +2941,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 1160,
+        "x": 480,
+        "y": 1220,
         "wires": [
             [
                 "c83fc0d7.d5371"
@@ -2892,7 +2959,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -2904,8 +2971,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 120,
-        "y": 1220,
+        "x": 280,
+        "y": 1280,
         "wires": [
             [
                 "f9171e3c.c6e42"
@@ -2942,8 +3009,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 1220,
+        "x": 480,
+        "y": 1280,
         "wires": [
             [
                 "c83fc0d7.d5371"
@@ -2959,8 +3026,8 @@
         "qos": "",
         "retain": "",
         "broker": "1ee251b4.d53dae",
-        "x": 540,
-        "y": 1220,
+        "x": 700,
+        "y": 1280,
         "wires": []
     },
     {
@@ -2973,7 +3040,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "decouple": "false",
         "topic": "",
         "style": "",
@@ -2985,8 +3052,8 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 120,
-        "y": 1280,
+        "x": 280,
+        "y": 1340,
         "wires": [
             [
                 "2fcdca59.3f7586"
@@ -3023,8 +3090,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 1280,
+        "x": 480,
+        "y": 1340,
         "wires": [
             [
                 "c83fc0d7.d5371"
@@ -3129,11 +3196,14 @@
         "topic": "Коридор",
         "qos": "2",
         "broker": "1ee251b4.d53dae",
-        "x": 120,
-        "y": 1840,
+        "x": 160,
+        "y": 2100,
         "wires": [
             [
-                "21a8ade9.876c1a"
+                "21a8ade9.876c1a",
+                "bf145e18.2b04b",
+                "e04b7fd4.4e86e",
+                "c506da7f.9d9e68"
             ]
         ]
     },
@@ -3179,8 +3249,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 6,
-        "x": 310,
-        "y": 1840,
+        "x": 350,
+        "y": 2100,
         "wires": [
             [
                 "6d0b8fbb.7639e8"
@@ -3250,8 +3320,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
-        "y": 1800,
+        "x": 620,
+        "y": 2060,
         "wires": [
             [
                 "dba60b3a.c2f938"
@@ -3306,8 +3376,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 1840,
+        "x": 630,
+        "y": 2100,
         "wires": [
             [
                 "aad9a85c.0e45d"
@@ -3362,8 +3432,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 1880,
+        "x": 630,
+        "y": 2140,
         "wires": [
             [
                 "5411da86.77f9b4"
@@ -3378,8 +3448,8 @@
         "func": "\nglobal.set(\"Bathroom_floor\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 840,
-        "y": 1800,
+        "x": 880,
+        "y": 2060,
         "wires": [
             [
                 "8c80e317.0ca268"
@@ -3394,8 +3464,8 @@
         "func": "\nglobal.set(\"Shower_floor\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 840,
-        "y": 1840,
+        "x": 880,
+        "y": 2100,
         "wires": [
             [
                 "8c80e317.0ca268"
@@ -3410,8 +3480,8 @@
         "func": "\nglobal.set(\"Hall_floor\",msg.payload);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 820,
-        "y": 1880,
+        "x": 860,
+        "y": 2140,
         "wires": [
             [
                 "8c80e317.0ca268"
@@ -3424,7 +3494,7 @@
         "z": "c6ee9baa.efc48",
         "name": "",
         "command": "/my_tickets",
-        "bot": "ba93dea6.5c7d58",
+        "bot": "befea48e.4167e8",
         "strict": false,
         "x": 60,
         "y": 300,
@@ -3440,7 +3510,7 @@
         "type": "telegram sender",
         "z": "c6ee9baa.efc48",
         "name": "",
-        "bot": "ba93dea6.5c7d58",
+        "bot": "befea48e.4167e8",
         "x": 1290,
         "y": 400,
         "wires": [
@@ -3624,7 +3694,7 @@
         "z": "c6ee9baa.efc48",
         "name": "",
         "command": "/my_info",
-        "bot": "ba93dea6.5c7d58",
+        "bot": "befea48e.4167e8",
         "strict": false,
         "x": 60,
         "y": 540,
@@ -3711,78 +3781,6 @@
             [
                 "a0c19761.6d54e"
             ],
-            []
-        ]
-    },
-    {
-        "id": "27fd5181.e4c4de",
-        "type": "debug",
-        "z": "8e8f3b1d.195f68",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 670,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "a8629eb8.dd9b3",
-        "type": "catch",
-        "z": "8e8f3b1d.195f68",
-        "name": "",
-        "scope": null,
-        "x": 420,
-        "y": 200,
-        "wires": [
-            [
-                "27fd5181.e4c4de"
-            ]
-        ]
-    },
-    {
-        "id": "e231e03a.96665",
-        "type": "telegram event",
-        "z": "8e8f3b1d.195f68",
-        "name": "",
-        "bot": "ba93dea6.5c7d58",
-        "event": "inline_query",
-        "autoanswer": true,
-        "x": 430,
-        "y": 260,
-        "wires": [
-            [
-                "e650559c.950538"
-            ]
-        ]
-    },
-    {
-        "id": "e650559c.950538",
-        "type": "function",
-        "z": "8e8f3b1d.195f68",
-        "name": "create results",
-        "func": "// we have to set the results propery with the answer(s)\n// see https://core.telegram.org/bots/api#inlinequeryresult\nvar results = [\n    // result 1 is InlineQueryResultArticle\n    {\n        type : \"article\",\n        id : \"1\",\n        title : \"Result 1\",\n        \n        // InputTextMessageContent see https://core.telegram.org/bots/api#inputmessagecontent\n        input_message_content : {\n            message_text : \"The message 1\",\n            parse_mode : \"Markdown\",\n            disable_web_page_preview : true\n        }\n    },\n    \n    // result 2 is InlineQueryResultArticle\n    {\n        type : \"article\",\n        id : \"2\",\n        title : \"Result 2\",\n        \n        // InputTextMessageContent see https://core.telegram.org/bots/api#inputmessagecontent\n        input_message_content : {\n            message_text : \"The message 2\",\n            parse_mode : \"Markdown\",\n            disable_web_page_preview : false\n        }\n    }\n    ];\n\n\nmsg.payload.results = results;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 680,
-        "y": 260,
-        "wires": [
-            [
-                "a51ae738.32af28"
-            ]
-        ]
-    },
-    {
-        "id": "a51ae738.32af28",
-        "type": "telegram sender",
-        "z": "8e8f3b1d.195f68",
-        "name": "",
-        "bot": "ba93dea6.5c7d58",
-        "x": 910,
-        "y": 260,
-        "wires": [
             []
         ]
     },
@@ -3876,8 +3874,8 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 910,
-        "y": 1300,
+        "x": 1010,
+        "y": 1280,
         "wires": []
     },
     {
@@ -3962,7 +3960,7 @@
         "type": "fs-file-lister",
         "z": "64399be2.de2ccc",
         "name": "",
-        "start": "motion",
+        "start": "/home/pi/node-red/node-red/motion",
         "pattern": "*.jpg",
         "path": true,
         "single": true,
@@ -3981,115 +3979,15 @@
         "type": "function",
         "z": "64399be2.de2ccc",
         "name": "",
-        "func": "global.set(\"chatId\",msg.payload.chatId);\n\nreturn msg;",
+        "func": "msg.payload.chatId = 336759477\nglobal.set(\"chatId\",msg.payload.chatId);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 540,
         "y": 1300,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "746dd94f.27d158",
-        "type": "catch",
-        "z": "d9d14e3.37f63b",
-        "name": "",
-        "x": 480,
-        "y": 380,
-        "wires": [
             [
-                "8f17c426.cd59d8"
+                "b0c0afeb.c8d24"
             ]
-        ]
-    },
-    {
-        "id": "8f17c426.cd59d8",
-        "type": "debug",
-        "z": "d9d14e3.37f63b",
-        "name": "Debug",
-        "active": true,
-        "console": "false",
-        "complete": "payload",
-        "x": 952,
-        "y": 376,
-        "wires": []
-    },
-    {
-        "id": "a029c2b7.071ac",
-        "type": "telegram sender",
-        "z": "d9d14e3.37f63b",
-        "name": "show keyboard",
-        "bot": "e8546bbd.94ed58",
-        "x": 966,
-        "y": 205,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "22f73a1c.6f5f36",
-        "type": "function",
-        "z": "d9d14e3.37f63b",
-        "name": "confirmation message",
-        "func": "context.global.keyboard = { pending : true };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Yes'],\n      ['No']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\n\nmsg.payload.content = 'Really?';\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
-        "outputs": "1",
-        "noerr": 0,
-        "x": 700,
-        "y": 205,
-        "wires": [
-            [
-                "a029c2b7.071ac"
-            ]
-        ]
-    },
-    {
-        "id": "22f62541.2e42ea",
-        "type": "telegram command",
-        "z": "d9d14e3.37f63b",
-        "name": "/foo",
-        "command": "/foo",
-        "bot": "e8546bbd.94ed58",
-        "x": 480,
-        "y": 232,
-        "wires": [
-            [
-                "22f73a1c.6f5f36"
-            ],
-            [
-                "58a238b1.edad88"
-            ]
-        ]
-    },
-    {
-        "id": "58a238b1.edad88",
-        "type": "function",
-        "z": "d9d14e3.37f63b",
-        "name": "create response",
-        "func": "if(context.global.keyboard.pending)\n{\n    context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Yes')\n    {\n        msg.payload.content = 'Yes';\n        return [msg, null];   \n    }\n    else\n    {\n        msg.payload.content = 'No';\n        return [null, msg];   \n    }\n}\n",
-        "outputs": "2",
-        "noerr": 0,
-        "x": 684,
-        "y": 264,
-        "wires": [
-            [
-                "863d6ff9.4c60f"
-            ],
-            [
-                "8f17c426.cd59d8"
-            ]
-        ]
-    },
-    {
-        "id": "863d6ff9.4c60f",
-        "type": "telegram sender",
-        "z": "d9d14e3.37f63b",
-        "name": "send response",
-        "bot": "e8546bbd.94ed58",
-        "x": 970,
-        "y": 258,
-        "wires": [
-            []
         ]
     },
     {
@@ -4102,7 +4000,7 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 1140,
+        "x": 1130,
         "y": 440,
         "wires": []
     },
@@ -4111,7 +4009,7 @@
         "type": "fs-file-lister",
         "z": "64399be2.de2ccc",
         "name": "",
-        "start": "motion",
+        "start": "/home/pi/node-red/node-red/motion",
         "pattern": "*.avi",
         "path": true,
         "single": true,
@@ -4157,6 +4055,1165 @@
             [
                 "7576885e.8e3ec8",
                 "d422bf4b.78001"
+            ]
+        ]
+    },
+    {
+        "id": "b0c0afeb.c8d24",
+        "type": "debug",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 720,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "45882044.161db",
+        "type": "ui_switch",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "label": "Коридор світло",
+        "group": "d300faa0.cd9738",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "false",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "true",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 300,
+        "y": 1420,
+        "wires": [
+            [
+                "69e6382c.5e7728"
+            ]
+        ]
+    },
+    {
+        "id": "69e6382c.5e7728",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "4/1/3",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "4/0/3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1420,
+        "wires": [
+            [
+                "be2d52d4.3e644"
+            ]
+        ]
+    },
+    {
+        "id": "be2d52d4.3e644",
+        "type": "mqtt out",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "topic": "Коридор1",
+        "qos": "",
+        "retain": "",
+        "broker": "1ee251b4.d53dae",
+        "x": 700,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "cdb67f5b.414b1",
+        "type": "ui_switch",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "label": "Коридор світло",
+        "group": "d300faa0.cd9738",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "false",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "true",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 300,
+        "y": 1480,
+        "wires": [
+            [
+                "c4acabd2.dbd588"
+            ]
+        ]
+    },
+    {
+        "id": "c4acabd2.dbd588",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "5/1/3",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "5/0/3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1480,
+        "wires": [
+            [
+                "be2d52d4.3e644"
+            ]
+        ]
+    },
+    {
+        "id": "357221fd.64ffce",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "6/1/3",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "6/0/3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1540,
+        "wires": [
+            [
+                "be2d52d4.3e644"
+            ]
+        ]
+    },
+    {
+        "id": "b3a12f0c.d8bba",
+        "type": "debug",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 700,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "9fda0bb9.b4c0a8",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "3/1/1",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "3/0/1",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 100,
+        "y": 860,
+        "wires": [
+            [
+                "d71cad1a.f1948"
+            ]
+        ]
+    },
+    {
+        "id": "295ba4a4.3280dc",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "2/1/1",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "2/0/1",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 100,
+        "y": 920,
+        "wires": [
+            [
+                "cf97395a.f5d4e"
+            ]
+        ]
+    },
+    {
+        "id": "23dede6f.452532",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1/1/1",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1/0/1",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 100,
+        "y": 980,
+        "wires": [
+            [
+                "addd4a14.c67838"
+            ]
+        ]
+    },
+    {
+        "id": "bf145e18.2b04b",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1/1/3",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1/0/3",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 100,
+        "y": 1220,
+        "wires": [
+            [
+                "a06785db.090a58"
+            ]
+        ]
+    },
+    {
+        "id": "e04b7fd4.4e86e",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "2/1/3",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "2/0/3",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 100,
+        "y": 1280,
+        "wires": [
+            [
+                "bac867f5.e73288"
+            ]
+        ]
+    },
+    {
+        "id": "c506da7f.9d9e68",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "3/1/3",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "3/0/3",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 100,
+        "y": 1340,
+        "wires": [
+            [
+                "7ba8273.18987d8"
+            ]
+        ]
+    },
+    {
+        "id": "831ea7d7.36b608",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "4/1/3",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "4/0/3",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 120,
+        "y": 1420,
+        "wires": [
+            [
+                "45882044.161db"
+            ]
+        ]
+    },
+    {
+        "id": "b661053c.bebed8",
+        "type": "mqtt in",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "topic": "Коридор1",
+        "qos": "2",
+        "broker": "1ee251b4.d53dae",
+        "x": 160,
+        "y": 2180,
+        "wires": [
+            [
+                "831ea7d7.36b608",
+                "ed7c22f0.a33de"
+            ]
+        ]
+    },
+    {
+        "id": "ed7c22f0.a33de",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "5/1/3",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "5/0/3",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 120,
+        "y": 1480,
+        "wires": [
+            [
+                "cdb67f5b.414b1"
+            ]
+        ]
+    },
+    {
+        "id": "364e550c.e4243a",
+        "type": "ngrok",
+        "z": "64399be2.de2ccc",
+        "port": "1880",
+        "creds": "88aaadc3.b546e",
+        "region": "eu",
+        "subdomain": "",
+        "name": "node-red",
+        "x": 940,
+        "y": 1680,
+        "wires": [
+            [
+                "5629fd0e.848e64"
+            ]
+        ]
+    },
+    {
+        "id": "fc4d7f97.912d8",
+        "type": "telegram command",
+        "z": "64399be2.de2ccc",
+        "name": "ngrok",
+        "command": "/ngrok",
+        "bot": "befea48e.4167e8",
+        "strict": false,
+        "x": 290,
+        "y": 1640,
+        "wires": [
+            [
+                "91195b6c.7f57d8"
+            ],
+            [
+                "98599f7d.ad2b5"
+            ]
+        ]
+    },
+    {
+        "id": "aa31950f.f79218",
+        "type": "debug",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1130,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "91195b6c.7f57d8",
+        "type": "function",
+        "z": "64399be2.de2ccc",
+        "name": "confirmation message",
+        "func": "// context.global.keyboard = { pending : true };\ncontext.global.keyboard = { device : 'ngrok' };\n\nvar opts = {\n  reply_to_message_id: msg.payload.messageId,\n  reply_markup: JSON.stringify({\n    keyboard: [\n      ['Вкл'],\n      ['Викл']],\n      'resize_keyboard' : true, \n      'one_time_keyboard' : true\n  })\n};\nmsg.payload.content = \"Змінити статус\";\nmsg.payload.options = opts;\n\nreturn [ msg ];\n",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 540,
+        "y": 1640,
+        "wires": [
+            [
+                "7576885e.8e3ec8"
+            ]
+        ]
+    },
+    {
+        "id": "98599f7d.ad2b5",
+        "type": "function",
+        "z": "64399be2.de2ccc",
+        "name": "create response",
+        "func": "if(context.global.keyboard.device == 'ngrok')\n{\n    //context.global.keyboard.pending = false;\n    \n    if(msg.payload.content === 'Вкл')\n    {\n        msg.payload = true;\n            return [msg, null];  \n    }\n    if(msg.payload.content === 'Викл')\n    {\n        msg.payload = false;\n            return [msg, null];  \n    }\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 520,
+        "y": 1680,
+        "wires": [
+            [
+                "2008ac53.70d0d4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2008ac53.70d0d4",
+        "type": "change",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "off",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "on",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1680,
+        "wires": [
+            [
+                "364e550c.e4243a"
+            ]
+        ]
+    },
+    {
+        "id": "5629fd0e.848e64",
+        "type": "function",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "func": "\nglobal.set(\"ngrok\",msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 1760,
+        "wires": [
+            [
+                "aa31950f.f79218"
+            ]
+        ]
+    },
+    {
+        "id": "5fa6901b.78ea9",
+        "type": "debug",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1050,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "2208f5de.beca7a",
+        "type": "inject",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "topic": "on",
+        "payload": "on",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 1960,
+        "wires": [
+            [
+                "b0e7932c.b51df"
+            ]
+        ]
+    },
+    {
+        "id": "c5e8d5e4.a0eae8",
+        "type": "exec",
+        "z": "64399be2.de2ccc",
+        "command": "curl localhost:4040/api/tunnels",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "ssh",
+        "x": 530,
+        "y": 1900,
+        "wires": [
+            [
+                "123db82c.f09618"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b8488f39.3ac43",
+        "type": "function",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "func": "\nmsg.payload.content = msg.payload.tunnels[0].public_url;\nglobal.set(\"ngrok_ssh\",msg.payload.content);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 930,
+        "y": 1860,
+        "wires": [
+            [
+                "a1c8aab2.5b8e08",
+                "1b0c6af3.24a605"
+            ]
+        ]
+    },
+    {
+        "id": "123db82c.f09618",
+        "type": "json",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 710,
+        "y": 1880,
+        "wires": [
+            [
+                "b8488f39.3ac43",
+                "5fa6901b.78ea9"
+            ]
+        ]
+    },
+    {
+        "id": "a1c8aab2.5b8e08",
+        "type": "debug",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1110,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "69113520.97c8ec",
+        "type": "telegram command",
+        "z": "64399be2.de2ccc",
+        "name": "ngrok_ssh",
+        "command": "/ngrok_ssh",
+        "bot": "befea48e.4167e8",
+        "strict": false,
+        "x": 300,
+        "y": 1780,
+        "wires": [
+            [
+                "43c79044.7468c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "43c79044.7468c",
+        "type": "function",
+        "z": "64399be2.de2ccc",
+        "name": "create help text",
+        "func": "\n\n\nvar helpMessage = \"\\r\\n\";\nhelpMessage += \"Оновлюю... \";\nhelpMessage += \"\\r\\n\";\n\n\nmsg.payload.content = helpMessage;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 500,
+        "y": 1780,
+        "wires": [
+            [
+                "7576885e.8e3ec8",
+                "c5e8d5e4.a0eae8"
+            ]
+        ]
+    },
+    {
+        "id": "c1f85a26.6806e8",
+        "type": "debug",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1130,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8315a8e6.492e28",
+        "type": "debug",
+        "z": "64399be2.de2ccc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1130,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c925945a.370408",
+        "type": "ui_switch",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "label": "Світильник лівий",
+        "group": "9a3abc8.ab772c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 310,
+        "y": 1100,
+        "wires": [
+            [
+                "c20bd291.ba629"
+            ]
+        ]
+    },
+    {
+        "id": "c20bd291.ba629",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "2/0/5",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "2/1/5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1100,
+        "wires": [
+            [
+                "fe663dc4.0b971"
+            ]
+        ]
+    },
+    {
+        "id": "608e84be.ea81cc",
+        "type": "ui_switch",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "label": "Світильник правий",
+        "group": "9a3abc8.ab772c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 310,
+        "y": 1140,
+        "wires": [
+            [
+                "e27ae6fe.c75f58"
+            ]
+        ]
+    },
+    {
+        "id": "e27ae6fe.c75f58",
+        "type": "change",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "3/0/5",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "3/1/5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1140,
+        "wires": [
+            [
+                "fe663dc4.0b971"
+            ]
+        ]
+    },
+    {
+        "id": "62a8393a.9757c8",
+        "type": "telegram sender",
+        "z": "bbcebd03.503cf",
+        "name": "send response",
+        "bot": "befea48e.4167e8",
+        "x": 1340,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2f924288.929e4e",
+        "type": "function",
+        "z": "bbcebd03.503cf",
+        "name": "create help text",
+        "func": "var text;\nif (msg.payload == \"Вкл\")\n\n{text = \"Включено\"}\nelse \n{text = \"Виключено\"}\n\nvar helpMessage =  text+\" теплу підлогу в \"+msg.room;\n\n\n\n\nmsg.payload = {\"chatId\":336759477,\"type\":\"message\",\"content\":helpMessage}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1100,
+        "y": 1560,
+        "wires": [
+            [
+                "62a8393a.9757c8",
+                "1c517b51.949e95"
+            ]
+        ]
+    },
+    {
+        "id": "a3922a28.2ff388",
+        "type": "function",
+        "z": "bbcebd03.503cf",
+        "name": "kitchen_telegram",
+        "func": "    msg.room = \"кухні\"\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 1700,
+        "wires": [
+            [
+                "2f924288.929e4e"
+            ]
+        ]
+    },
+    {
+        "id": "1c517b51.949e95",
+        "type": "debug",
+        "z": "bbcebd03.503cf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1110,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "b0e7932c.b51df",
+        "type": "exec",
+        "z": "64399be2.de2ccc",
+        "command": "ping 8.8.8.8",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 560,
+        "y": 2000,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1068734d.be975d",
+        "type": "ui_form",
+        "z": "d9d14e3.37f63b",
+        "name": "",
+        "label": "Auth",
+        "group": "ad915993.412978",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Login",
+                "value": "Login",
+                "type": "text",
+                "required": true
+            },
+            {
+                "label": "Pass",
+                "value": "Pass",
+                "type": "text",
+                "required": true
+            }
+        ],
+        "formValue": {
+            "Login": "",
+            "Pass": ""
+        },
+        "payload": "",
+        "submit": "Login",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "1f3834ca.d2737b",
+                "89d412f1.ecc1e",
+                "c5cfcc17.5129f"
+            ]
+        ]
+    },
+    {
+        "id": "1f3834ca.d2737b",
+        "type": "debug",
+        "z": "d9d14e3.37f63b",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 440,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "89d412f1.ecc1e",
+        "type": "function",
+        "z": "d9d14e3.37f63b",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c5cfcc17.5129f",
+        "type": "http request",
+        "z": "d9d14e3.37f63b",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "url": "https://jira.iwis.io/rest/gadget/1.0/login",
+        "tls": "",
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "1f3834ca.d2737b"
+            ]
+        ]
+    },
+    {
+        "id": "70354a80.416b04",
+        "type": "inject",
+        "z": "d9d14e3.37f63b",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "c5cfcc17.5129f"
             ]
         ]
     }
