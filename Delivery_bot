@@ -1,0 +1,242 @@
+[
+    {
+        "id": "8e8f3b1d.195f68",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2353a54e.4f850a",
+        "type": "json",
+        "z": "8e8f3b1d.195f68",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 590,
+        "y": 260,
+        "wires": [
+            [
+                "7a52042f.885f5c"
+            ]
+        ],
+        "info": "{\n  \"cut\": {\n    \"A911-svc\": {\n      \"date\": \"2023-02-01\"\n    },\n    \"Company-svc\": {\n      \"date\": \"2023-02-23\"\n    },\n    \"Mobile-GW-svc\": {\n      \"date\": \"2023-02-28\"\n    }\n  }\n  \"release\": {\n    \"A911-svc\": {\n      \"date\": \"2023-03-01\"\n    },\n    \"Company-svc\": {\n      \"date\": \"2023-03-23\"\n    },\n    \"Mobile-GW-svc\": {\n      \"date\": \"2023-03-28\"\n    }  \n  }\n}"
+    },
+    {
+        "id": "7a52042f.885f5c",
+        "type": "function",
+        "z": "8e8f3b1d.195f68",
+        "name": "Cut",
+        "func": "var scopeData = msg.payload; // Get JSON data from msg.payload\n\n// Get today's date\nvar today = new Date();\nvar cutAlertDay = new Date();\nvar cutAlertDay3 = new Date();\ncutAlertDay.setDate(cutAlertDay.getDate() + 2);\ncutAlertDay3.setDate(cutAlertDay3.getDate() + 3);\nvar todayString = today.toISOString().substring(0, 10);\nvar alertString = cutAlertDay.toISOString().substring(0, 10);\nvar alertString3 = cutAlertDay3.toISOString().substring(0, 10);\nvar alertString3Day = cutAlertDay3.getDay();\n\n// Loop through each service in the scope\nfor (var i = 0; i < scopeData.length; i+2) {\n  // Get the service name and dates\n  var serviceName = scopeData[i][0];\n//   var serviceNameVersion = scopeData[i+1][0];\n//   var serviceVersions = scopeData[i].slice(1);\n  var serviceDates = scopeData[i].slice(1);\n  \n  if (serviceDates.includes(alertString)) {\n    // Alert that today's date is found in the service scope\n    node.warn(\"Soon (\" + alertString + \") we will cut \" + serviceName);\n\n    content = (\"Soon (\" + alertString + \") we will cut \" + serviceName);\n    msg.payload = {\"chatId\":336759477,\"type\":\"message\",\"content\":content}\n\n    return msg; \n  }  \n  \n    if (serviceDates.includes(alertString3) && alertString3Day === 1) {\n    // Alert that today's date is found in the service scope\n    node.warn(\"Soon (\" + alertString3 + \") we will cut \" + serviceName);\n\n    content = (\"Soon (\"+ alertString3 +\") we will cut \" + serviceName);\n    msg.payload = {\"chatId\":336759477,\"type\":\"message\",\"content\":content}\n\n    return msg; \n  }  \n  \n\n  // Check if today's date is in the service dates\n  if (serviceDates.includes(todayString)) {\n    // Alert that today's date is found in the service scope\n    node.warn(\"Today (\" + todayString + \") is in the scope for service \" + serviceName);\n\n    content = (\"Today (\" + todayString + \") is in the scope for service \" + serviceName);\n    msg.payload = {\"chatId\":336759477,\"type\":\"message\",\"content\":content}\n\n    return msg; \n  }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 750,
+        "y": 260,
+        "wires": [
+            [
+                "c60ff242.b4413",
+                "f88a36f3.781228"
+            ]
+        ]
+    },
+    {
+        "id": "c60ff242.b4413",
+        "type": "debug",
+        "z": "8e8f3b1d.195f68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b28ff43d.7d8448",
+        "type": "GSheet",
+        "z": "8e8f3b1d.195f68",
+        "creds": "42ae7c11.181974",
+        "method": "get",
+        "action": "",
+        "sheet": "1jejILD-f275jMR6LXcItbXKcciiIy2duUsIxZ0Keij4",
+        "cells": "Cut",
+        "flatten": false,
+        "name": "",
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "2353a54e.4f850a"
+            ]
+        ]
+    },
+    {
+        "id": "a61a45d4.19dc78",
+        "type": "GSheet",
+        "z": "8e8f3b1d.195f68",
+        "creds": "42ae7c11.181974",
+        "method": "get",
+        "action": "",
+        "sheet": "1jejILD-f275jMR6LXcItbXKcciiIy2duUsIxZ0Keij4",
+        "cells": "Release",
+        "flatten": false,
+        "name": "",
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "418a2c38.677174"
+            ]
+        ]
+    },
+    {
+        "id": "418a2c38.677174",
+        "type": "json",
+        "z": "8e8f3b1d.195f68",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "33bbf568.44e45a"
+            ]
+        ],
+        "info": "{\n  \"cut\": {\n    \"A911-svc\": {\n      \"date\": \"2023-02-01\"\n    },\n    \"Company-svc\": {\n      \"date\": \"2023-02-23\"\n    },\n    \"Mobile-GW-svc\": {\n      \"date\": \"2023-02-28\"\n    }\n  }\n  \"release\": {\n    \"A911-svc\": {\n      \"date\": \"2023-03-01\"\n    },\n    \"Company-svc\": {\n      \"date\": \"2023-03-23\"\n    },\n    \"Mobile-GW-svc\": {\n      \"date\": \"2023-03-28\"\n    }  \n  }\n}"
+    },
+    {
+        "id": "33bbf568.44e45a",
+        "type": "function",
+        "z": "8e8f3b1d.195f68",
+        "name": "Release",
+        "func": "var scopeData = msg.payload; // Get JSON data from msg.payload\n\n// Get today's date\nvar today = new Date();\nvar todayString = today.toISOString().substring(0, 10);\n\n// Loop through each service in the scope\nfor (var i = 0; i < scopeData.length; i++) {\n  // Get the service name and dates\n  var serviceName = scopeData[i][0];\n  var serviceDates = scopeData[i].slice(1);\n\n  // Check if today's date is in the service dates\n  if (serviceDates.includes(todayString)) {\n    // Alert that today's date is found in the service scope\n    node.warn(\"Today (\" + todayString + \") is in the scope for service \" + serviceName);\n    content = (\"Today (\" + todayString + \") is in the scope for service \" + serviceName);\n    msg.payload = {\"chatId\":336759477,\"type\":\"message\",\"content\":content}\n\n    return msg; \n  }\n}\n   \n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 300,
+        "wires": [
+            [
+                "c60ff242.b4413",
+                "f88a36f3.781228"
+            ]
+        ]
+    },
+    {
+        "id": "f88a36f3.781228",
+        "type": "telegram sender",
+        "z": "8e8f3b1d.195f68",
+        "name": "send response",
+        "bot": "befea48e.4167e8",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 900,
+        "y": 420,
+        "wires": [
+            [
+                "c60ff242.b4413"
+            ]
+        ]
+    },
+    {
+        "id": "51488a27.fc6b94",
+        "type": "cronplus",
+        "z": "8e8f3b1d.195f68",
+        "name": "",
+        "outputField": "payload",
+        "timeZone": "",
+        "persistDynamic": false,
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "schedule1",
+                "payloadType": "default",
+                "payload": "",
+                "expressionType": "cron",
+                "expression": "0 11,14 * * 1-5",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "b28ff43d.7d8448",
+                "a61a45d4.19dc78"
+            ]
+        ]
+    },
+    {
+        "id": "1f5ecc59.d57534",
+        "type": "inject",
+        "z": "8e8f3b1d.195f68",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "b28ff43d.7d8448"
+            ]
+        ]
+    },
+    {
+        "id": "42ae7c11.181974",
+        "type": "gauth",
+        "name": "googlesheet@delta-surf-379711.iam.gserviceaccount.com"
+    },
+    {
+        "id": "befea48e.4167e8",
+        "type": "telegram bot",
+        "botname": "SHC",
+        "usernames": "",
+        "chatids": "336759477",
+        "baseapiurl": "",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "",
+        "socksusername": "",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "",
+        "publicbotport": "",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
